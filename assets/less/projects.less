@@ -1,0 +1,32 @@
+.projects{
+  font-size: 12px;
+  text-align: center;
+  margin: 70px 0;
+  .project-link{
+    color: @black;
+    &:hover{
+      color: @orange;
+    }
+  }
+  .row{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+    align-items: center;
+    @media (max-width: @screen-xs) {
+      overflow: auto;
+      flex-wrap: nowrap;
+    }
+    &:nth-child(odd){
+      background-color: #fefefe;
+    }
+    > div{
+      padding: 10px 5px;
+      &.mobile-none{
+        @media (max-width: @screen-xs) {
+          display: none;
+        }
+      }
+    }
+  }
+}

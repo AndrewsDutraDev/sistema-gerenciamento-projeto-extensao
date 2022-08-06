@@ -48,3 +48,37 @@ body {
   margin-left: auto;
   padding: 5px 20px;
 }
+.projects {
+  font-size: 12px;
+  text-align: center;
+  margin: 70px 0;
+}
+.projects .project-link {
+  color: #000;
+}
+.projects .project-link:hover {
+  color: #DE7910;
+}
+.projects .row {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .projects .row {
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
+}
+.projects .row:nth-child(odd) {
+  background-color: #fefefe;
+}
+.projects .row > div {
+  padding: 10px 5px;
+}
+@media (max-width: 767px) {
+  .projects .row > div.mobile-none {
+    display: none;
+  }
+}
