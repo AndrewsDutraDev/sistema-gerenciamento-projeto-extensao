@@ -1,0 +1,42 @@
+body {
+  background-color: #DDDDDD;
+}
+.btn {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #DE7910;
+  border: 1px solid #DE7910;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #DE7910;
+  border-color: #DE7910;
+}
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 40%;
+}
+.login form label {
+  font-size: 16px;
+  color: #DE7910;
+}
+.login form input {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .login form {
+    width: 100%;
+  }
+}
