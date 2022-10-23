@@ -20,7 +20,9 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie';
 export default {
+  // middleware: ['notAuthenticated'],
   data() {
     return {
       login: {
@@ -30,10 +32,24 @@ export default {
     }
   },
   methods: {
-    onSubmit(event) {
+    async onSubmit(event) {
       event.preventDefault()
-      alert(JSON.stringify(this.login))
+      await this.$axios.$post(`/login`, {
+        email: this.login.email,
+        password: this.login.password
+      }).then((res) => {
+        this.postLogin(res);
+      })
     },
-  }
+    postLogin(response) {
+      const auth = {
+        access_token: response.token,
+        email: response.user_email
+      }
+      this.$store.commit('setAuth', auth)
+      Cookie.set('auth', auth, {expires: 7, path: '/'})
+
+    },
+  },
 }
 </script>
