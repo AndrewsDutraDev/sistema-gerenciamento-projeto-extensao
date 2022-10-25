@@ -1,7 +1,7 @@
 <template>
   <b-container class="main-page">
     <Filtro/>
-    <Projects/>
+    <Projects />
   </b-container>
 </template>
 
@@ -13,6 +13,6 @@ export default {
   components:{
     Filtro,
     Projects
-  }
+  },
 }
 </script>

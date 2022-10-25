@@ -20,20 +20,20 @@
         Modalidade
       </b-col>
     </b-row>
-    <div v-for="project in projects" :key="project.id">
-      <a href="" class="project-link">
+    <div v-for="project in projects" :key="project._id">
+      <a :href="projectLink(project)" class="project-link">
         <b-row>
           <b-col sm="2">
-            {{ project.name }}
+            {{ project.title }}
           </b-col>
           <b-col sm="2" class="mobile-none">
-            {{ project.cordinator_name }}
+            {{ project.coordinatorName }}
           </b-col>
           <b-col sm="2" class="mobile-none">
-            {{ project.cordinator_email }}
+            {{ project.contactEmail }}
           </b-col>
           <b-col sm="2">
-            {{ project.center }}
+            {{ project.extensionCenter }}
           </b-col>
           <b-col sm="2" class="mobile-none">
             {{ project.unity }}
@@ -51,94 +51,22 @@
   export default {
     data() {
       return {
-        projects: [
-          {
-            id: 1,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 2,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 3,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 4,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 5,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 6,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 7,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 8,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-          {
-            id: 9,
-            name: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-            cordinator_name: 'Lorem Ipsum de Ipsum',
-            cordinator_email: 'lorem@ipsum.com',
-            center: 'Lorem Ipsum de Ipsum',
-            unity: 'Lorem Ipsum de Ipsum',
-            modality: 'Ipsum'
-          },
-        ]
+        projects: [],
       }
     },
     methods: {
-
-    }
+      projectLink(project){
+        return `/projeto/${project._id}`
+      }
+    },
+    async fetch() {
+      await this.$axios.get('/projetos').then((res) => {
+        console.log(res.data)
+        this.projects = res.data
+      }).catch((e) => {
+        console.error(e)
+      })
+    },
   }
 </script>
 
