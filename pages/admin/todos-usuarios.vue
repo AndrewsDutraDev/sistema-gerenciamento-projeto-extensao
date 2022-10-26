@@ -94,7 +94,6 @@ export default {
       await $axios.$get(`/usuarios`, config).then((res) => {
         if (res) {
           users = res
-          console.log(users)
         }
       }).catch((err) => {
         alert('Houve um erro ao carregar a página.')

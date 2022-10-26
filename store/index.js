@@ -46,7 +46,6 @@ export const actions = {
           }
       }
       commit('setAuth', auth)
-      console.log(state.auth)
   },
   logout({commit}) {
       this.$axios.$get('/?logout=sim')

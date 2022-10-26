@@ -20,8 +20,8 @@
         Modalidade
       </b-col>
     </b-row>
-    <div v-for="project in projects" :key="project._id">
-      <a :href="projectLink(project)" class="project-link">
+    <div v-for="project in projetos_pendentes_filtered" :key="project._id">
+      <a :href="projectLink(project)" class="project-link" v-if="$store.state.auth.id == project.coordinatorId">
         <b-row>
           <b-col sm="2">
             {{ project.title }}
@@ -49,23 +49,39 @@
 
 <script>
   export default {
-    data() {
+    middleware: 'authenticated',
+    head() {
       return {
-        projects: [],
+        title: 'Projeto',
       }
     },
     methods: {
       projectLink(project){
-        return `/projeto/${project._id}`
+        return `/editar-projeto?id=${project._id}`
       }
     },
-    async fetch() {
-      await this.$axios.get('/projetos').then((res) => {
-        this.projects = res.data
-      }).catch((e) => {
-        console.error(e)
-      })
+    computed:{
+      projetos_pendentes_filtered(){
+        return this.projetos_pendentes.filter(function(el) {
+          return el.isVisible == false;
+        })
+      }
     },
+    async asyncData({params, query, res, $axios, req, app, error, store}) {
+      try {
+        let projetos_pendentes = {}
+        let token = store.state.auth.access_token
+        await $axios.$get('/projetos', {headers: {'Authorization': `${token}` }}).then((res) => {
+          if (res) {
+            projetos_pendentes = res
+          }
+        })
+        return {
+          projetos_pendentes: projetos_pendentes,
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    }
   }
 </script>
-

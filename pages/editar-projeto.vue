@@ -301,7 +301,6 @@ export default {
         duration: this.project.duration,
         isVisible: this.project.isVisible
       }, config).then((res) => {
-        console.log(res)
         if (this.$store.state.auth.role == 1){
           this.$router.push('/admin/')
         }else{
@@ -318,7 +317,6 @@ export default {
   async asyncData({params, query, res, $axios, req, app, error, store}) {
     try {
       let query_id = query
-      console.log(query)
       let project = {}
       await $axios.$get(`/projetos/${query.id}`).then((res) => {
         if (res) {

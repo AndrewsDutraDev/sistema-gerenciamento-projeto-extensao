@@ -38,7 +38,6 @@ export default {
         email: this.login.email,
         password: this.login.password
       }).then((res) => {
-        console.log(res)
         this.postLogin(res);
       })
     },
@@ -56,10 +55,9 @@ export default {
         if (response.role == 1){
           this.$router.push('/admin/')
         }else{
-          // this.$router.push('/admin/')
+          this.$router.push('/coordenador/')
         }
       }
-
     },
   },
 }

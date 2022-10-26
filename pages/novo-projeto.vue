@@ -319,13 +319,10 @@ export default {
         if (this.$store.state.auth.role == 1){
           this.$router.push('/admin/')
         }else{
-          this.$router.push('/admin/')
+          this.$router.push('/coordenador/')
         }
       })
-    },
-    postLogin(response) {
-      this.$router.push('/admin/')
-    },
+    }
   }
 }
 </script>
