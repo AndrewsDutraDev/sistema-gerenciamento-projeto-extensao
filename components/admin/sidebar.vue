@@ -5,8 +5,11 @@
       <div class="sidebar-title-kit">
         <div class="sidebar-title-kit-name">Usuários</div>
         <div class="sidebar-title-kit-items">
-          <a href="/admin/usuarios">
+          <a href="/admin/todos-usuarios">
             Todos usuários do sistema
+          </a>
+          <a href="/admin/novo-usuario">
+            Criar novo usuário
           </a>
         </div>
 

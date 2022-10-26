@@ -142,3 +142,11 @@ body {
 .sidebar-title-kit-items a {
   color: #000;
 }
+.novo-usuario form {
+  max-width: 800px;
+  margin: 80px auto;
+}
+.novo-usuario form button {
+  max-width: fit-content;
+  margin-left: auto;
+}
