@@ -38,16 +38,26 @@ export default {
         email: this.login.email,
         password: this.login.password
       }).then((res) => {
+        console.log(res)
         this.postLogin(res);
       })
     },
     postLogin(response) {
       const auth = {
         access_token: response.token,
-        email: response.user_email
+        email: response.user_email,
+        role: response.role,
+        name: response.name
       }
       this.$store.commit('setAuth', auth)
-      Cookie.set('auth', auth, {expires: 7, path: '/'})
+      Cookie.set('auth', auth, {expires: 1, path: '/'})
+      if (response.role){
+        if (response.role == 1){
+          this.$router.push('/admin/')
+        }else{
+          // this.$router.push('/admin/')
+        }
+      }
 
     },
   },

@@ -11,7 +11,9 @@ export const state = () => {
   return {
     auth: {
       access_token: '',
-      email: ''
+      email: '',
+      role: '',
+      name: ''
     }
   }
 }
@@ -29,7 +31,9 @@ export const actions = {
   async nuxtServerInit({commit, state}, {req, app}) {
       let auth = {
           access_token: '',
-          email: ''
+          email: '',
+          role: '',
+          name: ''
       }
       if (req.headers.cookie) {
           const parsed = cookieparser.parse(req.headers.cookie)
@@ -40,6 +44,7 @@ export const actions = {
           }
       }
       commit('setAuth', auth)
+      console.log(state.auth)
   },
   logout({commit}) {
       this.$axios.$get('/?logout=sim')

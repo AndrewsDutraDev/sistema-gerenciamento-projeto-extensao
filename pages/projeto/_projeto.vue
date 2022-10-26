@@ -203,12 +203,10 @@ export default {
           title: 'Projeto',
         }
     },
-    async asyncData({params, query, res, $axios, req, app, error, $wdmerge, store}) {
-      console.log(params.projeto)
+    async asyncData({params, query, res, $axios, req, app, error, store}) {
       try {
         let projeto = {}
         await $axios.$get(`/projetos/${params.projeto}`).then((res) => {
-          console.log(res)
           if (res) {
             projeto = res
           }

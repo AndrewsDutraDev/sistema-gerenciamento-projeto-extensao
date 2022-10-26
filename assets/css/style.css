@@ -51,7 +51,7 @@ body {
 .projects {
   font-size: 12px;
   text-align: center;
-  margin: 70px 0;
+  margin: 70px auto;
 }
 .projects .project-link {
   color: #000;
@@ -93,6 +93,7 @@ body {
   max-width: fit-content;
   color: #000;
   position: relative;
+  text-decoration: none;
 }
 .project-back-page a:before {
   left: 0;
@@ -125,4 +126,19 @@ body {
 }
 .project-container .project-label-info {
   font-weight: 600;
+}
+.sidebar-title-kit {
+  padding: 15px;
+}
+.sidebar-title-kit-name {
+  font-weight: 600;
+  margin-top: 20px;
+}
+.sidebar-title-kit-items {
+  margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-title-kit-items a {
+  color: #000;
 }
