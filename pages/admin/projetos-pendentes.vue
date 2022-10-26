@@ -58,7 +58,7 @@
     computed:{
       projetos_pendentes_filtered(){
         return this.projetos_pendentes.filter(function(el) {
-          return el.isVisible == 'false';
+          return el.isVisible == false;
         })
       }
     },

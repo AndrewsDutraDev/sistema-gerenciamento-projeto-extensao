@@ -47,7 +47,8 @@ export default {
         access_token: response.token,
         email: response.user_email,
         role: response.role,
-        name: response.name
+        name: response.name,
+        id: response.id
       }
       this.$store.commit('setAuth', auth)
       Cookie.set('auth', auth, {expires: 1, path: '/'})

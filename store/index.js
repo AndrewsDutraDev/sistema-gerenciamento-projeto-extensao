@@ -13,7 +13,8 @@ export const state = () => {
       access_token: '',
       email: '',
       role: '',
-      name: ''
+      name: '',
+      id: ''
     }
   }
 }
@@ -33,7 +34,8 @@ export const actions = {
           access_token: '',
           email: '',
           role: '',
-          name: ''
+          name: '',
+          id: ''
       }
       if (req.headers.cookie) {
           const parsed = cookieparser.parse(req.headers.cookie)

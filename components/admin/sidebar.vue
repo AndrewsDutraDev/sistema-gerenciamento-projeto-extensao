@@ -15,6 +15,9 @@
 
         <div class="sidebar-title-kit-name">Projetos</div>
         <div class="sidebar-title-kit-items">
+          <a href="/novo-projeto">
+            Criar novo projeto
+          </a>
           <a href="/admin/projetos-pendentes">
             Projetos pendentes
           </a>
