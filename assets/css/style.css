@@ -82,3 +82,47 @@ body {
     display: none;
   }
 }
+.project {
+  padding: 0 15px;
+}
+.project-back-page {
+  max-width: 950px;
+  margin: 80px auto 20px;
+}
+.project-back-page a {
+  max-width: fit-content;
+  color: #000;
+  position: relative;
+}
+.project-back-page a:before {
+  left: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  width: 0;
+  transition: 0.3s;
+  background-color: #000;
+  height: 1px;
+}
+.project-back-page a:hover::before {
+  width: 100%;
+}
+.project-container {
+  max-width: 950px;
+  margin: 80px auto;
+  background-color: #fff;
+  padding: 0;
+}
+.project-container > div {
+  padding: 10px 5px;
+}
+.project-container > div:nth-child(odd) {
+  background-color: #efebeb;
+}
+.project-container .row {
+  margin: 0;
+  align-items: center;
+}
+.project-container .project-label-info {
+  font-weight: 600;
+}

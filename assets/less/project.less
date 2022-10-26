@@ -1,0 +1,47 @@
+.project{
+  padding: 0 15px;
+  &-back-page{
+    max-width: 950px;
+    margin: 80px auto 20px;
+    a{
+      max-width: fit-content;
+      color: @black;
+      position: relative;
+      text-decoration: none;
+      &:before{
+        left: 0;
+        bottom: 0;
+        content: "";
+        position: absolute;
+        width: 0;
+        transition: .3s;
+        background-color: @black;
+        height: 1px;
+      }
+      &:hover{
+        &::before{
+          width: 100%;
+        }
+      }
+    }
+  }
+  &-container{
+    max-width: 950px;
+    margin: 80px auto;
+    background-color: @white;
+    padding: 0;
+    > div{
+      padding: 10px 5px;
+      &:nth-child(odd){
+        background-color: #efebeb;
+      }
+    }
+    .row{
+      margin: 0;
+      align-items: center;
+    }
+    .project-label-info{
+      font-weight: 600;
+    }
+  }
+}
