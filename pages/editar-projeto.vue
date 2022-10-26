@@ -240,10 +240,18 @@
         ></b-form-input>
       </b-form-group>
 
+      <b-form-group
+        v-if="$store.state.auth.role == 1"
+        id="isVisible"
+        label="Exibir projeto?"
+        label-for="isVisible"
+      >
+        <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" v-model="project.isVisible">Tornar este projeto visível</b-form-checkbox>{{ query_id }}      </b-form-group>
+
 
 
       <div>
-        <b-button type="submit" class="btn">Criar novo projeto</b-button>
+        <b-button type="submit" class="btn">Salvar edição</b-button>
       </div>
     </b-form>
 
@@ -260,29 +268,6 @@ export default {
   },
   data() {
     return {
-
-      project: {
-        title: "",
-        extensionCenter: "",
-        unity: "",
-        modality: "",
-        mainArea: "",
-        secondArea: null,
-        sustainableGoals: "",
-        coordinatorName: "",
-        coordinatorId: "",
-        contactEmail: "",
-        abstract: "",
-        startDate: "",
-        endDate: "",
-        goals: "",
-        usefulLinks: "",
-        address: "",
-        workload: "",
-        methodology: "",
-        duration: "",
-        isVisible: false
-      },
     }
   },
   methods: {
@@ -294,7 +279,7 @@ export default {
         'Authorization': `${token}`
         }
       }
-      await this.$axios.$post(`/projetos/novo`, {
+      await this.$axios.$put(`/projetos/${this.query_id.id}`, {
         title: this.project.title,
         extensionCenter: this.project.extensionCenter,
         unity: this.project.unity,
@@ -314,18 +299,39 @@ export default {
         workload: this.project.workload,
         methodology: this.project.methodology,
         duration: this.project.duration,
-        isVisible: false
+        isVisible: this.project.isVisible
       }, config).then((res) => {
+        console.log(res)
         if (this.$store.state.auth.role == 1){
           this.$router.push('/admin/')
         }else{
           this.$router.push('/admin/')
         }
+      }).catch ((e) => {
+        console.log(e)
       })
     },
     postLogin(response) {
       this.$router.push('/admin/')
     },
+  },
+  async asyncData({params, query, res, $axios, req, app, error, store}) {
+    try {
+      let query_id = query
+      console.log(query)
+      let project = {}
+      await $axios.$get(`/projetos/${query.id}`).then((res) => {
+        if (res) {
+          project = res
+        }
+      })
+      return {
+        project: project,
+        query_id: query_id
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 </script>
