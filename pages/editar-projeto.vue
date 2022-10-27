@@ -258,7 +258,8 @@
 
 
 
-        <div>
+        <div class="novo-usuario-delete">
+          <b-button type="button" class="btn delete" @click="projectDelete(project)" v-if="$store.state.auth.role == 1">Excluir projeto</b-button>
           <b-button type="submit" class="btn">Salvar edição</b-button>
         </div>
       </b-form>
@@ -283,6 +284,19 @@ export default {
     }
   },
   methods: {
+    async projectDelete(project){
+      let token = this.$store.state.auth.access_token
+      let config = {
+        headers: {
+        'Authorization': `${token}`
+        }
+      }
+      await this.$axios.$delete(`/projetos/${this.query_id.id}`, config).then((res) => {
+        this.$router.push('/admin')
+      }).catch((err) => {
+        alert('Não foi possível excluir o projeto.')
+      })
+    },
     async onSubmit(event) {
       event.preventDefault()
       let token = this.$store.state.auth.access_token

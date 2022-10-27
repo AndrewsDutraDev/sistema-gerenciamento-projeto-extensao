@@ -162,3 +162,19 @@ body {
   max-width: fit-content;
   margin-left: auto;
 }
+.novo-usuario-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+.novo-usuario-delete button {
+  margin-left: 0 !important;
+}
+.novo-usuario-delete button.delete {
+  margin-right: 20px;
+  background-color: #fff;
+  color: #DE7910;
+}
+.novo-usuario-delete button.delete:hover {
+  background-color: #DE7910;
+  color: #fff;
+}

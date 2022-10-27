@@ -7,4 +7,20 @@
       margin-left: auto;
     }
   }
+  &-delete{
+    display: flex;
+    justify-content: flex-end;
+    button{
+      margin-left: 0 !important;
+      &.delete{
+        margin-right: 20px;
+        background-color: @white;
+        color: @orange;
+        &:hover{
+          background-color: @orange;
+          color: @white;
+        }
+      }
+    }
+  }
 }
