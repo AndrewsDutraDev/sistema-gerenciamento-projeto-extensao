@@ -1,64 +1,75 @@
 <template>
-  <b-container class="novo-usuario">
-    <sidebar/>
-    <b-form @submit="onSubmit">
-      <b-form-group
-        id="name"
-        label="Nome"
-        label-for="name"
-      >
-        <b-form-input
+  <div>
+    <div v-if="$store.state.auth.role == 1">
+      <admin></admin>
+    </div>
+    <div v-else>
+      <coordenador></coordenador>
+    </div>
+    <b-container class="novo-usuario">
+      <sidebar/>
+      <b-form @submit="onSubmit">
+        <b-form-group
           id="name"
-          v-model="user.name"
-          type="text"
-          placeholder="Digite nome"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Nome"
+          label-for="name"
+        >
+          <b-form-input
+            id="name"
+            v-model="user.name"
+            type="text"
+            placeholder="Digite nome"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="email"
-        label="E-mail"
-        label-for="email"
-      >
-        <b-form-input
+        <b-form-group
           id="email"
-          v-model="user.email"
-          type="text"
-          placeholder="Digite e-mail do usuário"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="E-mail"
+          label-for="email"
+        >
+          <b-form-input
+            id="email"
+            v-model="user.email"
+            type="text"
+            placeholder="Digite e-mail do usuário"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <!-- <b-form-group
-        id="password"
-        label="Unidade"
-        label-for="password"
-      >
-        <b-form-input
+        <!-- <b-form-group
           id="password"
-          v-model="user.password"
-          type="text"
-          placeholder="Digite a senha"
-          required
-        ></b-form-input>
-      </b-form-group> -->
+          label="Unidade"
+          label-for="password"
+        >
+          <b-form-input
+            id="password"
+            v-model="user.password"
+            type="text"
+            placeholder="Digite a senha"
+            required
+          ></b-form-input>
+        </b-form-group> -->
 
-      <div>
-        <b-button type="submit" class="btn">Salvar edição</b-button>
-      </div>
-    </b-form>
+        <div>
+          <b-button type="submit" class="btn">Salvar edição</b-button>
+        </div>
+      </b-form>
 
-  </b-container>
+    </b-container>
+  </div>
+
 </template>
 
 <script>
 import Cookie from 'js-cookie';
-import sidebar from '../components/admin/sidebar.vue';
+import admin from '../components/layouts/admin.vue';
+import coordenador from '../components/layouts/coordenador.vue';
 export default {
   middleware: 'authenticated',
   components:{
-    sidebar,
+    admin,
+    coordenador,
   },
   data() {
     return {

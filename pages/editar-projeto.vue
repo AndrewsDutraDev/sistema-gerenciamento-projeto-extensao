@@ -1,270 +1,282 @@
 <template>
-  <b-container class="novo-usuario">
-    <sidebar/>
-    <b-form @submit="onSubmit">
-      <b-form-group
-        id="title"
-        label="Título"
-        label-for="title"
-      >
-        <b-form-input
-          id="name"
-          v-model="project.title"
-          type="text"
-          placeholder="Digite o título do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+  <div>
+    <div v-if="$store.state.auth.role == 1">
+      <admin></admin>
+    </div>
+    <div v-else>
+      <coordenador></coordenador>
+    </div>
+    <b-container class="novo-usuario">
+      <sidebar/>
+      <b-form @submit="onSubmit">
+        <b-form-group
+          id="title"
+          label="Título"
+          label-for="title"
+        >
+          <b-form-input
+            id="name"
+            v-model="project.title"
+            type="text"
+            placeholder="Digite o título do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="extensionCenter"
-        label="Centro de extensão"
-        label-for="extensionCenter"
-      >
-        <b-form-input
+        <b-form-group
           id="extensionCenter"
-          v-model="project.extensionCenter"
-          type="text"
-          placeholder="Digite o centro de extensão ao qual o projeto pertence"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Centro de extensão"
+          label-for="extensionCenter"
+        >
+          <b-form-input
+            id="extensionCenter"
+            v-model="project.extensionCenter"
+            type="text"
+            placeholder="Digite o centro de extensão ao qual o projeto pertence"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="unity"
-        label="Unidade"
-        label-for="unity"
-      >
-        <b-form-input
+        <b-form-group
           id="unity"
-          v-model="project.unity"
-          type="text"
-          placeholder="Digite a unidade ao qual o projeto pertence"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Unidade"
+          label-for="unity"
+        >
+          <b-form-input
+            id="unity"
+            v-model="project.unity"
+            type="text"
+            placeholder="Digite a unidade ao qual o projeto pertence"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="modality"
-        label="Modalidade"
-        label-for="modality"
-      >
-        <b-form-input
+        <b-form-group
           id="modality"
-          v-model="project.modality"
-          type="text"
-          placeholder="Digite a modalidade ao qual o projeto pertence"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Modalidade"
+          label-for="modality"
+        >
+          <b-form-input
+            id="modality"
+            v-model="project.modality"
+            type="text"
+            placeholder="Digite a modalidade ao qual o projeto pertence"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="mainArea"
-        label="Área temática principal"
-        label-for="mainArea"
-      >
-        <b-form-input
+        <b-form-group
           id="mainArea"
-          v-model="project.mainArea"
-          type="text"
-          placeholder="Digite a área temática principal ao qual o projeto pertence"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Área temática principal"
+          label-for="mainArea"
+        >
+          <b-form-input
+            id="mainArea"
+            v-model="project.mainArea"
+            type="text"
+            placeholder="Digite a área temática principal ao qual o projeto pertence"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="secondArea"
-        label="Área temática secundária"
-        label-for="secondArea"
-      >
-        <b-form-input
+        <b-form-group
           id="secondArea"
-          v-model="project.secondArea"
-          type="text"
-          placeholder="Digite a área temática secundária ao qual o projeto pertence"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Área temática secundária"
+          label-for="secondArea"
+        >
+          <b-form-input
+            id="secondArea"
+            v-model="project.secondArea"
+            type="text"
+            placeholder="Digite a área temática secundária ao qual o projeto pertence"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="sustainableGoals"
-        label="Objetivos sustentáveis"
-        label-for="sustainableGoals"
-      >
-        <b-form-input
+        <b-form-group
           id="sustainableGoals"
-          v-model="project.sustainableGoals"
-          type="text"
-          placeholder="Digite os objetivos sustentáveis do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Objetivos sustentáveis"
+          label-for="sustainableGoals"
+        >
+          <b-form-input
+            id="sustainableGoals"
+            v-model="project.sustainableGoals"
+            type="text"
+            placeholder="Digite os objetivos sustentáveis do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="contactEmail"
-        label="E-mail de contato"
-        label-for="contactEmail"
-      >
-        <b-form-input
+        <b-form-group
           id="contactEmail"
-          v-model="project.contactEmail"
-          type="text"
-          placeholder="Digite o e-mail de contato"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="E-mail de contato"
+          label-for="contactEmail"
+        >
+          <b-form-input
+            id="contactEmail"
+            v-model="project.contactEmail"
+            type="text"
+            placeholder="Digite o e-mail de contato"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="abstract"
-        label="Resumo"
-        label-for="abstract"
-      >
-        <b-form-input
+        <b-form-group
           id="abstract"
-          v-model="project.abstract"
-          type="text"
-          placeholder="Digite um resumo do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Resumo"
+          label-for="abstract"
+        >
+          <b-form-input
+            id="abstract"
+            v-model="project.abstract"
+            type="text"
+            placeholder="Digite um resumo do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="startDate"
-        label="Data de início"
-        label-for="startDate"
-      >
-        <b-form-input
+        <b-form-group
           id="startDate"
-          v-model="project.startDate"
-          type="text"
-          placeholder="Digite uma data de início"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Data de início"
+          label-for="startDate"
+        >
+          <b-form-input
+            id="startDate"
+            v-model="project.startDate"
+            type="text"
+            placeholder="Digite uma data de início"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="endDate"
-        label="Data de término"
-        label-for="endDate"
-      >
-        <b-form-input
+        <b-form-group
           id="endDate"
-          v-model="project.endDate"
-          type="text"
-          placeholder="Digite uma data de término"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Data de término"
+          label-for="endDate"
+        >
+          <b-form-input
+            id="endDate"
+            v-model="project.endDate"
+            type="text"
+            placeholder="Digite uma data de término"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="goals"
-        label="Objetivos gerais"
-        label-for="goals"
-      >
-        <b-form-input
+        <b-form-group
           id="goals"
-          v-model="project.goals"
-          type="text"
-          placeholder="Digite os objetivos gerais do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Objetivos gerais"
+          label-for="goals"
+        >
+          <b-form-input
+            id="goals"
+            v-model="project.goals"
+            type="text"
+            placeholder="Digite os objetivos gerais do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <!-- <b-form-group
-        id="usefulLinks"
-        label="Links úteis"
-        label-for="usefulLinks"
-      >
-        <b-form-input
+        <!-- <b-form-group
           id="usefulLinks"
-          v-model="project.usefulLinks"
-          type="text"
-          placeholder="Digite os links úteis do projeto"
-          required
-        ></b-form-input>
-      </b-form-group> -->
+          label="Links úteis"
+          label-for="usefulLinks"
+        >
+          <b-form-input
+            id="usefulLinks"
+            v-model="project.usefulLinks"
+            type="text"
+            placeholder="Digite os links úteis do projeto"
+            required
+          ></b-form-input>
+        </b-form-group> -->
 
-      <b-form-group
-        id="address"
-        label="Endereço"
-        label-for="address"
-      >
-        <b-form-input
+        <b-form-group
           id="address"
-          v-model="project.address"
-          type="text"
-          placeholder="Digite o endereço do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Endereço"
+          label-for="address"
+        >
+          <b-form-input
+            id="address"
+            v-model="project.address"
+            type="text"
+            placeholder="Digite o endereço do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="workload"
-        label="Carga horária"
-        label-for="workload"
-      >
-        <b-form-input
+        <b-form-group
           id="workload"
-          v-model="project.workload"
-          type="text"
-          placeholder="Digite a carga horária do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Carga horária"
+          label-for="workload"
+        >
+          <b-form-input
+            id="workload"
+            v-model="project.workload"
+            type="text"
+            placeholder="Digite a carga horária do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="methodology"
-        label="Metodologia"
-        label-for="methodology"
-      >
-        <b-form-input
+        <b-form-group
           id="methodology"
-          v-model="project.methodology"
-          type="text"
-          placeholder="Digite a metodologia do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Metodologia"
+          label-for="methodology"
+        >
+          <b-form-input
+            id="methodology"
+            v-model="project.methodology"
+            type="text"
+            placeholder="Digite a metodologia do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        id="duration"
-        label="Duração"
-        label-for="duration"
-      >
-        <b-form-input
+        <b-form-group
           id="duration"
-          v-model="project.duration"
-          type="text"
-          placeholder="Digite a duração do projeto"
-          required
-        ></b-form-input>
-      </b-form-group>
+          label="Duração"
+          label-for="duration"
+        >
+          <b-form-input
+            id="duration"
+            v-model="project.duration"
+            type="text"
+            placeholder="Digite a duração do projeto"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-      <b-form-group
-        v-if="$store.state.auth.role == 1"
-        id="isVisible"
-        label="Exibir projeto?"
-        label-for="isVisible"
-      >
-        <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" v-model="project.isVisible">Tornar este projeto visível</b-form-checkbox>{{ query_id }}      </b-form-group>
+        <b-form-group
+          v-if="$store.state.auth.role == 1"
+          id="isVisible"
+          label="Exibir projeto?"
+          label-for="isVisible"
+        >
+          <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" v-model="project.isVisible">Tornar este projeto visível</b-form-checkbox>
+        </b-form-group>
 
 
 
-      <div>
-        <b-button type="submit" class="btn">Salvar edição</b-button>
-      </div>
-    </b-form>
+        <div>
+          <b-button type="submit" class="btn">Salvar edição</b-button>
+        </div>
+      </b-form>
 
-  </b-container>
+    </b-container>
+  </div>
+
 </template>
 
 <script>
 import Cookie from 'js-cookie';
-import sidebar from '../components/admin/sidebar.vue';
+import admin from '../components/layouts/admin.vue';
+import coordenador from '../components/layouts/coordenador.vue';
 export default {
   middleware: 'authenticated',
   components:{
-    sidebar,
+    admin,
+    coordenador
   },
   data() {
     return {

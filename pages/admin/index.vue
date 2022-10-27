@@ -1,15 +1,17 @@
 <template>
   <b-container class="main-page">
-    <sidebar/>
+    <admin>
+
+    </admin>
   </b-container>
 </template>
 
 <script>
-import sidebar from '../../components/admin/sidebar.vue';
+import admin from '../../components/layouts/admin.vue'
 export default {
   middleware: 'authenticated',
   components:{
-    sidebar,
+    admin,
   },
 }
 </script>

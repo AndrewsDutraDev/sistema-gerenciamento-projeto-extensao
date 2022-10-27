@@ -1,63 +1,64 @@
 <template>
-  <b-container class="novo-usuario">
-    <sidebar/>
-
-    <b-container class="projects">
-      <b-row>
-        <b-col sm="3">
-          Nome
-        </b-col>
-        <b-col sm="3" class="mobile-none">
-          E-mail
-        </b-col>
-        <b-col sm="2">
-          Cargo
-        </b-col>
-        <b-col sm="4">
-          Ações
-        </b-col>
-      </b-row>
-      <div v-for="user in users" :key="user._id">
+  <div>
+    <admin></admin>
+    <b-container class="novo-usuario">
+      <b-container class="projects">
         <b-row>
           <b-col sm="3">
-            {{ user.name }}
+            Nome
           </b-col>
           <b-col sm="3" class="mobile-none">
-            {{ user.email }}
+            E-mail
           </b-col>
           <b-col sm="2">
-            <div v-if="user.role == 1">
-              Adminstrador
-            </div>
-            <div v-else>
-              Coordenador
-            </div>
+            Cargo
           </b-col>
           <b-col sm="4">
-            <b-row>
-              <b-col sm="6">
-                <a :href="userLink(user)">
-                  Editar
-                </a>
-              </b-col>
-              <b-col sm="6" @click="userDelete(user)">
-                Excluir
-              </b-col>
-            </b-row>
+            Ações
           </b-col>
         </b-row>
-      </div>
+        <div v-for="user in users" :key="user._id">
+          <b-row>
+            <b-col sm="3">
+              {{ user.name }}
+            </b-col>
+            <b-col sm="3" class="mobile-none">
+              {{ user.email }}
+            </b-col>
+            <b-col sm="2">
+              <div v-if="user.role == 1">
+                Adminstrador
+              </div>
+              <div v-else>
+                Coordenador
+              </div>
+            </b-col>
+            <b-col sm="4">
+              <b-row>
+                <b-col sm="6">
+                  <a :href="userLink(user)">
+                    Editar
+                  </a>
+                </b-col>
+                <b-col sm="6" @click="userDelete(user)">
+                  Excluir
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </div>
+      </b-container>
     </b-container>
-  </b-container>
+  </div>
 </template>
 
 <script>
 import Cookie from 'js-cookie';
-import sidebar from '../../components/admin/sidebar.vue';
+import admin from '../../components/layouts/admin.vue'
 export default {
   middleware: 'authenticated',
   components:{
-    sidebar,
+    admin,
   },
   data() {
     return {
