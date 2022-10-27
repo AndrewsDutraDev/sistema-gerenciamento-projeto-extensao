@@ -22,7 +22,7 @@
             Projetos publicados
           </a>
         </div>
-        <b-button @click="logout()">Sair</b-button>
+        <b-button @click="logout()" class="sidebar-logout">Sair</b-button>
       </div>
     </b-sidebar>
   </div>

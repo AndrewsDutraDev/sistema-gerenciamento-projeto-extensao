@@ -96,6 +96,7 @@ export default {
         'Authorization': `${token}`
         }
       }
+      console.log(this.register)
       await this.$axios.$post(`/registrar`, {
         email: this.register.email,
         password: this.register.password,

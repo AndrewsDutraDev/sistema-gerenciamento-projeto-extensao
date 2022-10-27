@@ -23,7 +23,7 @@
         </b-col>
       </b-row>
       <div v-for="project in projetos_pendentes_filtered" :key="project._id">
-        <a href="" class="project-link">
+        <a :href="projectLink(project)" class="project-link">
           <b-row>
             <b-col sm="2">
               {{ project.title }}
@@ -57,6 +57,11 @@
       admin,
     },
     middleware: 'authenticated',
+    methods: {
+      projectLink(project){
+        return `/editar-projeto?id=${project._id}`
+      }
+    },
     head() {
       return {
         title: 'Projeto',

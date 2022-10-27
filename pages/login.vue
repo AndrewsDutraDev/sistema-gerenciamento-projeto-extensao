@@ -39,6 +39,8 @@ export default {
         password: this.login.password
       }).then((res) => {
         this.postLogin(res);
+      }).catch ((err) =>{
+        console.log(err);
       })
     },
     postLogin(response) {
