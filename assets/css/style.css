@@ -142,6 +142,18 @@ body {
 .sidebar-title-kit-items a {
   color: #000;
 }
+.sidebar-layout {
+  background-color: #a7a7a7;
+  box-shadow: 0 0 5px 0px black;
+  padding: 30px 15px;
+}
+.sidebar-layout button {
+  max-width: fit-content;
+}
+.sidebar-logout {
+  padding: 6px 20px;
+  margin-top: 60px;
+}
 .novo-usuario form {
   max-width: 800px;
   margin: 80px auto;

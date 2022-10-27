@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+  <div class="sidebar-layout">
+    <b-button v-b-toggle.sidebar-1>Abrir menu</b-button>
     <b-sidebar id="sidebar-1" title="Menu do ADMIN" shadow>
       <div class="sidebar-title-kit">
         <div class="sidebar-title-kit-name">Usuários</div>
@@ -25,6 +25,7 @@
             Projetos publicados
           </a>
         </div>
+        <b-button @click="logout()" class="sidebar-logout">Sair</b-button>
       </div>
     </b-sidebar>
   </div>
@@ -36,5 +37,10 @@ export default {
 
     }
   },
+  methods:{
+    logout() {
+      this.$store.dispatch('logout')
+    }
+  }
 }
 </script>

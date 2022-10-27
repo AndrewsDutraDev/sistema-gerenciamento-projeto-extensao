@@ -1,9 +1,9 @@
 <template>
-  <b-container class="main-page">
-    <admin>
-
-    </admin>
-  </b-container>
+  <div>
+    <admin></admin>
+    <b-container class="main-page">
+    </b-container>
+  </div>
 </template>
 
 <script>

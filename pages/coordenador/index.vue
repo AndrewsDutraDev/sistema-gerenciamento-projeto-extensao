@@ -1,9 +1,12 @@
 <template>
-  <b-container class="main-page">
+  <div>
     <coordenador>
 
     </coordenador>
-  </b-container>
+    <b-container class="main-page">
+    </b-container>
+  </div>
+
 </template>
 
 <script>

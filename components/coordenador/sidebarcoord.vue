@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sidebar-layout">
     <b-button v-b-toggle.sidebar-1>Abrir menu</b-button>
     <b-sidebar id="sidebar-1" title="Menu coordenador" shadow>
       <div class="sidebar-title-kit">
@@ -22,6 +22,7 @@
             Projetos publicados
           </a>
         </div>
+        <b-button @click="logout()">Sair</b-button>
       </div>
     </b-sidebar>
   </div>
@@ -33,5 +34,10 @@ export default {
 
     }
   },
+  methods:{
+    logout() {
+      this.$store.dispatch('logout')
+    }
+  }
 }
 </script>

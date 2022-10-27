@@ -48,11 +48,14 @@ export const actions = {
       commit('setAuth', auth)
   },
   logout({commit}) {
-      this.$axios.$get('/?logout=sim')
-      commit('setAuth', {
-          access_token: '',
-          person_name: ''
-      })
-      Cookie.remove('auth')
+    this.$router.push('/login')
+    commit('setAuth', {
+      access_token: '',
+      email: '',
+      role: '',
+      name: '',
+      id: ''
+    })
+    Cookie.remove('auth')
   }
 }
