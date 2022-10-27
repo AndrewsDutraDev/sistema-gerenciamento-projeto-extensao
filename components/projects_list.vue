@@ -20,7 +20,7 @@
         Modalidade
       </b-col>
     </b-row>
-    <div v-for="project in projects" :key="project._id">
+    <div v-for="project in projetos_filtered" :key="project._id">
       <a :href="projectLink(project)" class="project-link">
         <b-row>
           <b-col sm="2">
@@ -52,6 +52,13 @@
     data() {
       return {
         projects: [],
+      }
+    },
+    computed:{
+      projetos_filtered(){
+        return this.projects.filter(function(el) {
+          return el.isVisible == true;
+        })
       }
     },
     methods: {
