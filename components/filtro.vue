@@ -16,14 +16,14 @@
           </b-form-group>
 
           <b-form-group
-            id="centro"
-            label="Centro"
-            label-for="centro"
+            id="coordenator"
+            label="Coordenador responsável"
+            label-for="coordenator"
           >
             <b-form-input
-              id="centro"
+              id="coordenator"
               type="text"
-              v-model="form.center"
+              v-model="form.coordenator"
             ></b-form-input>
           </b-form-group>
 
@@ -78,7 +78,8 @@
           main_area: '',
           second_area: '',
           modality: '',
-          unity: ''
+          unity: '',
+          coordenator: ''
         },
         main_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
         second_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
