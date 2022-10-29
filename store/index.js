@@ -5,6 +5,9 @@ export const getters = {
   isAuth: state => {
     return !!state.auth.access_token
   },
+  role: state => {
+    return state.auth.role
+  },
 }
 
 export const state = () => {
