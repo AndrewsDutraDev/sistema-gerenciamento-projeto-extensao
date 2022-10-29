@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-layout">
-    <b-button v-b-toggle.sidebar-1>Abrir menu</b-button>
-    <b-sidebar id="sidebar-1" title="Menu coordenador" shadow>
+    <b-button v-b-toggle.sidebar-right>Abrir menu</b-button>
+    <b-sidebar id="sidebar-right" title="Menu coordenador" right shadow>
       <div class="sidebar-title-kit">
         <div class="sidebar-title-kit-name">Meu usuário</div>
         <div class="sidebar-title-kit-items">
@@ -25,6 +25,11 @@
         <b-button @click="logout()" class="sidebar-logout">Sair</b-button>
       </div>
     </b-sidebar>
+    <div>
+      <a href="https://www.furg.br/" target="_blank">
+        <img src="../../assets/img/logofurg.png" alt="Logo da FURG" title="Logo da FURG"></img>
+      </a>
+    </div>
   </div>
 </template>
 <script>

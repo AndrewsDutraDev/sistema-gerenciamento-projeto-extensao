@@ -15,11 +15,20 @@
     }
   }
   &-layout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
     background-color: #a7a7a7;
     box-shadow: 0 0 5px 0px black;
     padding: 30px 15px;
     button{
       max-width: fit-content;
+    }
+    img{
+      @media (max-width: @screen-xs) {
+        max-width: 200px;
+      }
     }
   }
   &-logout{
