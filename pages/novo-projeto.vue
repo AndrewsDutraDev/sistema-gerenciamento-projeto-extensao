@@ -46,21 +46,24 @@
           ></b-form-select>
         </b-form-group>
 
-        <!-- <b-form-group
-          id="modality"
-          label="Modalidade"
-          label-for="modality"
-        >
-          <b-form-input
-            id="modality"
-            v-model="project.modality"
-            type="text"
-            placeholder="Digite a modalidade ao qual o projeto pertence"
-            required
-          ></b-form-input>
-        </b-form-group> -->
 
-        <b-form-group
+        <b-form-group id="area-tematica" label="Área temática principal" label-for="area-tematica">
+          <b-form-select
+            id="area-tematica"
+            v-model="project.mainArea"
+            :options="main_area"
+          ></b-form-select>
+        </b-form-group>
+
+        <b-form-group id="secondArea" label="Área temática secundária" label-for="area-tematica">
+          <b-form-select
+            id="secondArea"
+            v-model="project.secondArea"
+            :options="secondArea"
+          ></b-form-select>
+        </b-form-group>
+
+        <!-- <b-form-group
           id="mainArea"
           label="Área temática principal"
           label-for="mainArea"
@@ -86,7 +89,7 @@
             placeholder="Digite a área temática secundária ao qual o projeto pertence"
             required
           ></b-form-input>
-        </b-form-group>
+        </b-form-group> -->
 
         <b-form-group
           id="sustainableGoals"
@@ -265,6 +268,8 @@ export default {
   },
   data() {
     return {
+      main_area: [{ text: 'Selecione', value: null }, 'Cultura', 'Direitos humanos e justiça', 'Meio ambiente', 'Tecnologia e produção', 'Saúde', 'Educação',  'Trabalho', 'Comunicação'],
+      secondArea: [{ text: 'Selecione', value: null }, 'Cultura', 'Direitos humanos e justiça', 'Meio ambiente', 'Tecnologia e produção', 'Saúde', 'Educação',  'Trabalho', 'Comunicação'],
       modality: [{ text: 'Selecione uma modalidade', value: null }, 'Curso', 'Empresa Jr.', 'Evento', 'Prestação de serviço', 'Programa', 'Projeto'],
       project: {
         title: "",

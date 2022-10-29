@@ -81,8 +81,8 @@
           unity: '',
           coordenator: ''
         },
-        main_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
-        second_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
+        main_area: [{ text: 'Selecione', value: null }, 'Cultura', 'Direitos humanos e justiça', 'Meio ambiente', 'Tecnologia e produção', 'Saúde', 'Educação',  'Trabalho', 'Comunicação'],
+        second_area: [{ text: 'Selecione', value: null }, 'Cultura', 'Direitos humanos e justiça', 'Meio ambiente', 'Tecnologia e produção', 'Saúde', 'Educação',  'Trabalho', 'Comunicação'],
         modality: [{ text: 'Selecione', value: null }, 'Curso', 'Empresa Jr.', 'Evento', 'Prestação de serviço', 'Programa', 'Projeto'],
         unity: [{ text: 'Selecione', value: null }, 'C3'],
       }
