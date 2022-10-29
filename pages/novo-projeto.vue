@@ -326,9 +326,9 @@ export default {
         isVisible: false
       }, config).then((res) => {
         if (this.$store.state.auth.role == 1){
-          this.$router.push('/admin/')
+          this.$router.push('/admin/projetos-publicados')
         }else{
-          this.$router.push('/coordenador/')
+          this.$router.push('/coordenador/projetos-publicados')
         }
       })
     }

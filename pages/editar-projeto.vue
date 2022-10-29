@@ -288,11 +288,14 @@ export default {
         'Authorization': `${token}`
         }
       }
-      await this.$axios.$delete(`/projetos/${this.query_id.id}`, config).then((res) => {
+      if(confirm("Tem certeza que deseja excluir este projeto?")){
+        await this.$axios.$delete(`/projetos/${this.query_id.id}`, config).then((res) => {
         this.$router.push('/admin')
-      }).catch((err) => {
-        alert('Não foi possível excluir o projeto.')
-      })
+        }).catch((err) => {
+          alert('Não foi possível excluir o projeto.')
+        })
+      }
+
     },
     async onSubmit(event) {
       event.preventDefault()
@@ -324,16 +327,16 @@ export default {
         isVisible: this.project.isVisible
       }, config).then((res) => {
         if (this.$store.state.auth.role == 1){
-          this.$router.push('/admin/')
+          this.$router.push('/admin/projetos-publicados')
         }else{
-          this.$router.push('/admin/')
+          this.$router.push('/coordenador/projetos-publicados')
         }
       }).catch ((e) => {
         console.log(e)
       })
     },
     postLogin(response) {
-      this.$router.push('/admin/')
+      this.$router.push('/admin/projetos-publicados')
     },
   },
   async asyncData({params, query, res, $axios, req, app, error, store}) {

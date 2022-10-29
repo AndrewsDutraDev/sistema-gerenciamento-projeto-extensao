@@ -108,7 +108,7 @@ export default {
       })
     },
     postLogin(response) {
-      this.$router.push('/admin/')
+      this.$router.push('/admin/todos-usuarios')
     },
   }
 }
