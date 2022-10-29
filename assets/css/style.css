@@ -59,6 +59,11 @@ body {
   height: 24px;
   width: 24px;
 }
+.title-description {
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
 .login {
   height: 100vh;
   display: flex;

@@ -4,6 +4,7 @@
 
     </coordenador>
     <b-container class="projects">
+      <div class="title-description">Meus projetos pendentes</div>
       <b-row>
         <b-col sm="2">
           Nome

@@ -2,6 +2,7 @@
   <div>
     <admin></admin>
     <b-container class="projects">
+      <div class="title-description">Todos projetos pendentes</div>
       <b-row>
         <b-col sm="2">
           Nome

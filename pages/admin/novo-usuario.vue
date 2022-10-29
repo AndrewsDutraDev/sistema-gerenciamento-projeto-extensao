@@ -4,6 +4,7 @@
     <b-container class="novo-usuario">
 
       <b-form @submit="onSubmit">
+        <div class="title-description">Criar novo acesso de usuário</div>
         <b-form-group
           id="name"
           label="Nome"

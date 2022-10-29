@@ -8,6 +8,7 @@
     </div>
     <b-container class="novo-usuario">
       <b-form @submit="onSubmit">
+        <div class="title-description">Criar novo projeto</div>
         <b-form-group
           id="title"
           label="Título"

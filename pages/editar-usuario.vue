@@ -9,6 +9,7 @@
     <b-container class="novo-usuario">
       <sidebar/>
       <b-form @submit="onSubmit">
+        <div class="title-description">Editar meu usuário</div>
         <b-form-group
           id="name"
           label="Nome"

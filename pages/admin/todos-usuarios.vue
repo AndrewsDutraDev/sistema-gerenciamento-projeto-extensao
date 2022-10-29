@@ -3,6 +3,7 @@
     <admin></admin>
     <b-container class="novo-usuario">
       <b-container class="projects">
+        <div class="title-description">Todos usuários do sistema</div>
         <b-row>
           <b-col sm="3">
             Nome

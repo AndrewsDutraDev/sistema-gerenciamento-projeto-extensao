@@ -55,9 +55,9 @@ export default {
       Cookie.set('auth', auth, {expires: 1, path: '/'})
       if (response.role){
         if (response.role == 1){
-          this.$router.push('/admin/')
+          this.$router.push('/admin/projetos-publicados')
         }else{
-          this.$router.push('/coordenador/')
+          this.$router.push('/coordenador/projetos-publicados')
         }
       }
     },
