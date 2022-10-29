@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-layout">
     <b-button v-b-toggle.sidebar-right>Abrir menu</b-button>
-    <b-sidebar id="sidebar-right" title="Menu do ADMIN" right shadow>
+    <b-sidebar id="sidebar-right" :title="'Olá, '+username" right shadow>
       <div class="sidebar-title-kit">
         <div class="sidebar-title-kit-name">Usuários</div>
         <div class="sidebar-title-kit-items">
@@ -40,6 +40,11 @@ export default {
   data() {
     return {
 
+    }
+  },
+  computed:{
+    username(){
+      return this.$store.state.auth.name;
     }
   },
   methods:{
