@@ -77,11 +77,13 @@ export default {
         'Authorization': `${token}`
         }
       }
-      await this.$axios.$delete(`/usuarios/${user._id}`, config).then((res) => {
+      if(confirm("Tem certeza que deseja excluir este usuário?")){
+        await this.$axios.$delete(`/usuarios/${user._id}`, config).then((res) => {
         this.$router.go(0)
-      }).catch((err) => {
-        alert('Não foi possível excluir o usuário.')
-      })
+        }).catch((err) => {
+          alert('Não foi possível excluir o usuário.')
+        })
+      }
     }
   },
   async asyncData({params, query, res, $axios, req, app, error, store}) {
