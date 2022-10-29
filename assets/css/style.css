@@ -16,6 +16,20 @@ body {
   color: #DE7910;
   border-color: #DE7910;
 }
+.input-password {
+  position: relative;
+}
+.input-password .icon-see-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.input-password .icon-see-password svg {
+  height: 24px;
+  width: 24px;
+}
 .login {
   height: 100vh;
   display: flex;

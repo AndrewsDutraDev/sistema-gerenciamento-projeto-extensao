@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     userLink(user){
-      return `/usuario/${user._id}`
+      return `/editar-usuario/?id=${user._id}`
     },
     async userDelete(user){
       let token = this.$store.state.auth.access_token
