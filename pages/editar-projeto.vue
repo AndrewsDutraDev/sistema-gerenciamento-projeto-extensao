@@ -24,20 +24,6 @@
         </b-form-group>
 
         <b-form-group
-          id="extensionCenter"
-          label="Centro de extensão"
-          label-for="extensionCenter"
-        >
-          <b-form-input
-            id="extensionCenter"
-            v-model="project.extensionCenter"
-            type="text"
-            placeholder="Digite o centro de extensão ao qual o projeto pertence"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
           id="unity"
           label="Unidade"
           label-for="unity"
@@ -51,7 +37,17 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group
+
+        <b-form-group id="modalidade" label="Modalidade" label-for="modalidade">
+          <b-form-select
+            id="modalidade"
+            v-model="project.modality"
+            :options="modality"
+            required
+          ></b-form-select>
+        </b-form-group>
+
+        <!-- <b-form-group
           id="modality"
           label="Modalidade"
           label-for="modality"
@@ -63,7 +59,7 @@
             placeholder="Digite a modalidade ao qual o projeto pertence"
             required
           ></b-form-input>
-        </b-form-group>
+        </b-form-group> -->
 
         <b-form-group
           id="mainArea"
@@ -281,6 +277,7 @@ export default {
   },
   data() {
     return {
+      modality: [{ text: 'Selecione', value: null }, 'Curso', 'Empresa Jr.', 'Evento', 'Prestação de serviço', 'Programa', 'Projeto'],
     }
   },
   methods: {
@@ -307,7 +304,6 @@ export default {
       }
       await this.$axios.$put(`/projetos/${this.query_id.id}`, {
         title: this.project.title,
-        extensionCenter: this.project.extensionCenter,
         unity: this.project.unity,
         modality: this.project.modality,
         mainArea: this.project.mainArea,
