@@ -82,7 +82,7 @@
         },
         main_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
         second_area: [{ text: 'Selecione', value: null }, 'Meio ambiente', 'Direitos humanos e justiça'],
-        modality: [{ text: 'Selecione', value: null }, 'Evento', 'Curso', 'Projeto', 'Programa'],
+        modality: [{ text: 'Selecione', value: null }, 'Curso', 'Empresa Jr.', 'Evento', 'Prestação de serviço', 'Programa', 'Projeto'],
         unity: [{ text: 'Selecione', value: null }, 'C3'],
       }
     },
