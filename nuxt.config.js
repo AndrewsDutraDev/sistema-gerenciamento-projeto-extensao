@@ -44,6 +44,7 @@ export default {
   build: {
   },
   axios: {
-    baseURL: 'https://api-sistema-gerenciamento-proj.herokuapp.com', // Used as fallback if no runtime config is provided
+    // baseURL: 'https://api-sistema-gerenciamento-proj.herokuapp.com',
+    baseURL: 'http://localhost:8080',
   },
 }

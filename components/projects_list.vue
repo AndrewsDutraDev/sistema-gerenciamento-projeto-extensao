@@ -10,9 +10,6 @@
       <b-col sm="2" class="mobile-none">
         E-mail do coordenador
       </b-col>
-      <b-col sm="2">
-        Centro de Ação de Extensão
-      </b-col>
       <b-col sm="2" class="mobile-none">
         Unidade de Ação de Extensão
       </b-col>
@@ -31,9 +28,6 @@
           </b-col>
           <b-col sm="2" class="mobile-none">
             {{ project.contactEmail }}
-          </b-col>
-          <b-col sm="2">
-            {{ project.extensionCenter }}
           </b-col>
           <b-col sm="2" class="mobile-none">
             {{ project.unity }}
