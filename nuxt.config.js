@@ -44,7 +44,7 @@ export default {
   build: {
   },
   axios: {
-    // baseURL: 'https://api-sistema-gerenciamento-proj.herokuapp.com',
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://api-sistema-gerenciamento-proj.herokuapp.com',
+    // baseURL: 'http://localhost:8080',
   },
 }
