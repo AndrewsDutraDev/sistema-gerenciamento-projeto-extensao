@@ -16,7 +16,6 @@
     "cookie-universal-nuxt": "^2.1.5",
     "cookieparser": "^0.1.0",
     "core-js": "^3.19.3",
-    "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
     "gulp-plumber": "^1.2.1",
