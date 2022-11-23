@@ -40,14 +40,14 @@ export const actions = {
           name: '',
           id: ''
       }
-      if (req.headers.cookie) {
-          const parsed = cookieparser.parse(req.headers.cookie)
-          try {
-              auth = JSON.parse(parsed.auth)
-          } catch (err) {
-              // No valid cookie found
-          }
-      }
+      // if (req.headers.cookie) {
+      //     const parsed = cookieparser.parse(req.headers.cookie)
+      //     try {
+      //         auth = JSON.parse(parsed.auth)
+      //     } catch (err) {
+      //         // No valid cookie found
+      //     }
+      // }
       commit('setAuth', auth)
   },
   logout({commit}) {
