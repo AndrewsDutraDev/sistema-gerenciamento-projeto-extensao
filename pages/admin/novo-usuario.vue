@@ -58,7 +58,9 @@
 
 
         <div>
-          <b-button type="submit" class="btn">Criar novo usuário</b-button>
+          <b-button type="submit" class="btn">Criar novo usuário
+            <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+          </b-button>
         </div>
       </b-form>
 
@@ -76,6 +78,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       options:[
         { value: 1, text: 'Administrador' },
         { value: 2, text: 'Coordenador' },
@@ -91,20 +94,25 @@ export default {
   methods: {
     async onSubmit(event) {
       event.preventDefault()
+      this.isLoading = true
       let token = this.$store.state.auth.access_token
       let config = {
         headers: {
         'Authorization': `${token}`
         }
       }
-      console.log(this.register)
       await this.$axios.$post(`/registrar`, {
         email: this.register.email,
         password: this.register.password,
         role: this.register.role,
         name: this.register.name
       }, config).then((res) => {
+        this.isLoading = false
         this.postLogin(res);
+      }).catch((e)=>{
+        console.log(err);
+        alert('Ocorreu um erro. Tente novamente')
+        this.isLoading = false
       })
     },
     postLogin(response) {

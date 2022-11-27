@@ -256,7 +256,9 @@
 
         <div class="novo-usuario-delete">
           <b-button type="button" class="btn delete" @click="projectDelete(project)" v-if="$store.state.auth.role == 1">Excluir projeto</b-button>
-          <b-button type="submit" class="btn">Salvar edição</b-button>
+          <b-button type="submit" class="btn">Salvar edição
+            <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+          </b-button>
         </div>
       </b-form>
 
@@ -277,6 +279,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       modality: [{ text: 'Selecione', value: null }, 'Curso', 'Empresa Jr.', 'Evento', 'Prestação de serviço', 'Programa', 'Projeto'],
     }
   },
@@ -305,6 +308,7 @@ export default {
         'Authorization': `${token}`
         }
       }
+      this.isLoading = true
       await this.$axios.$put(`/projetos/${this.query_id.id}`, {
         title: this.project.title,
         unity: this.project.unity,
@@ -326,12 +330,15 @@ export default {
         duration: this.project.duration,
         isVisible: this.project.isVisible
       }, config).then((res) => {
+        this.isLoading = false
         if (this.$store.state.auth.role == 1){
           this.$router.push('/admin/projetos-publicados')
         }else{
           this.$router.push('/coordenador/projetos-publicados')
         }
       }).catch ((e) => {
+        alert('Ocorreu um erro. Tente novamente')
+        this.isLoading = false
         console.log(e)
       })
     },

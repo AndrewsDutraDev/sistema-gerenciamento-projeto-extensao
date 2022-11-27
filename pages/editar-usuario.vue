@@ -80,7 +80,9 @@
         </b-form-group>
 
         <div>
-          <b-button type="submit" class="btn">Salvar edição</b-button>
+          <b-button type="submit" class="btn">Salvar edição
+            <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+          </b-button>
         </div>
       </b-form>
 
@@ -101,6 +103,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       isPasswordType: true,
       password: '',
       options:[
@@ -112,18 +115,22 @@ export default {
   methods: {
     async onSubmit(event) {
       event.preventDefault()
+      this.isLoading = true
       await this.$axios.$put(`/usuarios/${this.query_id.id}`, {
         name: this.user.name,
         email: this.user.email,
         password: this.password,
         role: this.user.role
       }, this.config).then((res) => {
+        this.isLoading = false
         if (this.$store.state.auth.role == 1){
           this.$router.push('/admin/todos-usuarios')
         }else{
           this.$router.push('/coordenador/projetos-publicados')
         }
       }).catch ((e) => {
+        alert('Ocorreu um erro. Tente novamente')
+        this.isLoading = false
         console.log(e)
       })
     },

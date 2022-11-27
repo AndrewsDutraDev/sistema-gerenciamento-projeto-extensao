@@ -12,7 +12,9 @@
           </b-form-input>
         </b-form-group>
 
-        <b-button type="submit" class="btn">Entrar</b-button>
+        <b-button type="submit" class="btn">Entrar
+          <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+        </b-button>
       </b-form>
     </div>
   </b-container>
@@ -25,6 +27,7 @@ export default {
   // middleware: ['notAuthenticated'],
   data() {
     return {
+      isLoading: false,
       login: {
         email: '',
         password: ''
@@ -34,13 +37,17 @@ export default {
   methods: {
     async onSubmit(event) {
       event.preventDefault()
+      this.isLoading = true
       await this.$axios.$post(`/login`, {
         email: this.login.email,
         password: this.login.password
       }).then((res) => {
         this.postLogin(res);
+        this.isLoading = false
       }).catch ((err) =>{
         console.log(err);
+        alert('Ocorreu um erro. Tente novamente')
+        this.isLoading = false
       })
     },
     postLogin(response) {
