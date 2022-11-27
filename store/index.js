@@ -33,6 +33,7 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({commit, state}, {req, app}) {
+      const cookieRes = this.$cookies.get('auth')
       let auth = {
           access_token: '',
           email: '',
@@ -40,14 +41,14 @@ export const actions = {
           name: '',
           id: ''
       }
-      // if (req.headers.cookie) {
-      //     const parsed = cookieparser.parse(req.headers.cookie)
-      //     try {
-      //         auth = JSON.parse(parsed.auth)
-      //     } catch (err) {
-      //         // No valid cookie found
-      //     }
-      // }
+      if (cookieRes) {
+          try {
+              auth = cookieRes
+          } catch (err) {
+              // No valid cookie found
+          }
+      }
+      console.log(auth)
       commit('setAuth', auth)
   },
   logout({commit}) {

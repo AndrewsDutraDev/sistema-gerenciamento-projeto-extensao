@@ -52,7 +52,9 @@ export default {
         id: response.id
       }
       this.$store.commit('setAuth', auth)
-      Cookie.set('auth', auth, {expires: 1, path: '/'})
+      // Cookie.set('auth', auth, {expires: 1, path: '/'})
+
+      this.$cookies.set('auth', auth)
       if (response.role){
         if (response.role == 1){
           this.$router.push('/admin/projetos-publicados')
