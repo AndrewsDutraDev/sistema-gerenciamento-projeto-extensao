@@ -48,7 +48,6 @@ export const actions = {
               // No valid cookie found
           }
       }
-      console.log(auth)
       commit('setAuth', auth)
   },
   logout({commit}) {
