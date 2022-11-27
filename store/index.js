@@ -24,8 +24,11 @@ export const state = () => {
 
 export const mutations = {
   setAuth(state, auth = {
-      access_token: '',
-      email: ''
+    access_token: '',
+    email: '',
+    role: '',
+    name: '',
+    id: ''
   }) {
       state.auth = auth
   },
@@ -34,6 +37,7 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({commit, state}, {req, app}) {
       const cookieRes = this.$cookies.get('auth')
+      console.log(cookieRes)
       let auth = {
           access_token: '',
           email: '',
@@ -48,6 +52,7 @@ export const actions = {
               // No valid cookie found
           }
       }
+
       commit('setAuth', auth)
   },
   logout({commit}) {
