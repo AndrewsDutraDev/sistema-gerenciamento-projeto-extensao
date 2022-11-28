@@ -1,6 +1,9 @@
-export default function ({store, redirect, route}) {
+export default function ({store, redirect, route, $cookies}) {
   console.log(store.getters.isAuth)
   console.log(store.getters.role)
+  const cookieRes = $cookies.get('auth')
+  console.log(cookieRes)
+  console.log('dentro do middleware')
   if (!store.getters.isAuth) {
     return redirect('/login')
   }
