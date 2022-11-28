@@ -14,7 +14,6 @@ gulp.task('js', function () {
     .pipe(gulp.dest('plugins'))
 });
 gulp.task('watch', gulp.series(function () {
-    console.log('chamou')
     gulp.watch(['assets/less/*.less'], gulp.parallel(['less']));
 }));
 gulp.task('default', gulp.series(['less', 'watch']));

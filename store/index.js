@@ -37,7 +37,6 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({commit, state}, {req, app}) {
       const cookieRes = this.$cookies.get('auth')
-      console.log(cookieRes)
       let auth = {
           access_token: '',
           email: '',
