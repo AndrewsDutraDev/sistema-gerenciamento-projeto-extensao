@@ -75,7 +75,9 @@
               </b-form-group>
             </b-col>
             <b-col sm="12">
-              <b-button @click="searchResults()" class="btn">Consultar</b-button>
+              <b-button @click="searchResults()" class="btn">Consultar
+                <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+              </b-button>
             </b-col>
           </b-row>
         </b-form>
@@ -137,6 +139,7 @@ import Projects from '../components/projects_list.vue';
 export default {
   data() {
     return {
+      isLoading: false,
       projects: [],
       form: {
         title: '',
@@ -162,6 +165,7 @@ export default {
     },
     async searchResults(){
       event.preventDefault()
+      this.isLoading = true
       let data = {
         title: this.form.title,
         coordinatorName: this.form.coordenator,
@@ -178,9 +182,10 @@ export default {
         mainArea: this.form.main_area,
         secondArea: this.form.second_area,
       }).then((res) => {
-        console.log(res)
         this.projects = res
+        this.isLoading = false
       }).catch ((err) =>{
+        this.isLoading = false
         console.log(err);
       })
     }

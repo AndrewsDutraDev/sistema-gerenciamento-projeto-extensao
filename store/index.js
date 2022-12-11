@@ -55,7 +55,7 @@ export const actions = {
       commit('setAuth', auth)
   },
   logout({commit}) {
-    this.$router.push('/login')
+    this.$router.push('/')
     commit('setAuth', {
       access_token: '',
       email: '',
