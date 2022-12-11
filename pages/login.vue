@@ -60,7 +60,7 @@ export default {
       }
       this.$store.commit('setAuth', auth)
       // Cookie.set('auth', auth, {expires: 1, path: '/'})
-
+      console.log(auth)
       this.$cookies.set('auth', auth)
       if (response.role){
         if (response.role == 1){

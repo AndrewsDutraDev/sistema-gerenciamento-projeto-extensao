@@ -111,7 +111,7 @@
           <b-form-input
             id="contactEmail"
             v-model="project.contactEmail"
-            type="text"
+            type="email"
             placeholder="Digite o e-mail de contato"
             required
           ></b-form-input>
@@ -136,13 +136,14 @@
           label="Data de início"
           label-for="startDate"
         >
-          <b-form-input
+          <the-mask :mask="['##/##/####']" id="endDate" v-model="project.startDate" placeholder="Digite uma data de início" required class="form-control" masked="true" />
+          <!-- <b-form-input
             id="startDate"
             v-model="project.startDate"
             type="text"
             placeholder="Digite uma data de início"
             required
-          ></b-form-input>
+          ></b-form-input> -->
         </b-form-group>
 
         <b-form-group
@@ -150,13 +151,14 @@
           label="Data de término"
           label-for="endDate"
         >
-          <b-form-input
+        <the-mask :mask="['##/##/####']" id="endDate" v-model="project.endDate" placeholder="Digite uma data de término" required class="form-control" masked="true" />
+          <!-- <b-form-input
             id="endDate"
             v-model="project.endDate"
             type="text"
             placeholder="Digite uma data de término"
             required
-          ></b-form-input>
+          ></b-form-input> -->
         </b-form-group>
 
         <b-form-group
@@ -268,6 +270,7 @@
 </template>
 
 <script>
+import {TheMask} from 'vue-the-mask'
 import Cookie from 'js-cookie';
 import admin from '../components/layouts/admin.vue';
 import coordenador from '../components/layouts/coordenador.vue';
@@ -275,7 +278,8 @@ export default {
   middleware: 'authenticated',
   components:{
     admin,
-    coordenador
+    coordenador,
+    TheMask
   },
   data() {
     return {
@@ -316,8 +320,8 @@ export default {
         mainArea: this.project.mainArea,
         secondArea: this.project.secondArea,
         sustainableGoals: this.project.sustainableGoals,
-        coordinatorName: this.$store.state.auth.name,
-        coordinatorId: this.$store.state.auth.id,
+        coordinatorName: this.project.coordinatorName,
+        coordinatorId: this.project.coordinatorId,
         contactEmail: this.project.contactEmail,
         abstract: this.project.abstract,
         startDate: this.project.startDate,
