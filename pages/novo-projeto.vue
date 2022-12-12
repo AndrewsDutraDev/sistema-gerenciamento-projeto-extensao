@@ -114,7 +114,7 @@
           <b-form-input
             id="contactEmail"
             v-model="project.contactEmail"
-            type="text"
+            type="email"
             placeholder="Digite o e-mail de contato"
             required
           ></b-form-input>
