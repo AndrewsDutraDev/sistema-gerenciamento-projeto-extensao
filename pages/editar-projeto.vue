@@ -20,6 +20,7 @@
             type="text"
             placeholder="Digite o título do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -34,6 +35,7 @@
             type="text"
             placeholder="Digite a unidade ao qual o projeto pertence"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -44,22 +46,9 @@
             v-model="project.modality"
             :options="modality"
             required
+            :disabled="$store.state.auth.role == 1"
           ></b-form-select>
         </b-form-group>
-
-        <!-- <b-form-group
-          id="modality"
-          label="Modalidade"
-          label-for="modality"
-        >
-          <b-form-input
-            id="modality"
-            v-model="project.modality"
-            type="text"
-            placeholder="Digite a modalidade ao qual o projeto pertence"
-            required
-          ></b-form-input>
-        </b-form-group> -->
 
         <b-form-group
           id="mainArea"
@@ -72,6 +61,7 @@
             type="text"
             placeholder="Digite a área temática principal ao qual o projeto pertence"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -86,6 +76,7 @@
             type="text"
             placeholder="Digite a área temática secundária ao qual o projeto pertence"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -100,6 +91,7 @@
             type="text"
             placeholder="Digite os objetivos sustentáveis do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -114,6 +106,7 @@
             type="email"
             placeholder="Digite o e-mail de contato"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -128,6 +121,7 @@
             type="text"
             placeholder="Digite um resumo do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -136,7 +130,7 @@
           label="Data de início"
           label-for="startDate"
         >
-          <the-mask :mask="['##/##/####']" id="endDate" v-model="project.startDate" placeholder="Digite uma data de início" required class="form-control" masked="true" />
+          <the-mask :mask="['##/##/####']" id="endDate" v-model="project.startDate" placeholder="Digite uma data de início" required class="form-control" masked="true" :readonly="$store.state.auth.role == 1" />
           <!-- <b-form-input
             id="startDate"
             v-model="project.startDate"
@@ -151,7 +145,7 @@
           label="Data de término"
           label-for="endDate"
         >
-        <the-mask :mask="['##/##/####']" id="endDate" v-model="project.endDate" placeholder="Digite uma data de término" required class="form-control" masked="true" />
+        <the-mask :mask="['##/##/####']" id="endDate" v-model="project.endDate" placeholder="Digite uma data de término" required class="form-control" masked="true" :readonly="$store.state.auth.role == 1" />
           <!-- <b-form-input
             id="endDate"
             v-model="project.endDate"
@@ -172,6 +166,7 @@
             type="text"
             placeholder="Digite os objetivos gerais do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -200,6 +195,7 @@
             type="text"
             placeholder="Digite o endereço do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -214,6 +210,7 @@
             type="text"
             placeholder="Digite a carga horária do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -228,6 +225,7 @@
             type="text"
             placeholder="Digite a metodologia do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -242,6 +240,7 @@
             type="text"
             placeholder="Digite a duração do projeto"
             required
+            :readonly="$store.state.auth.role == 1"
           ></b-form-input>
         </b-form-group>
 
@@ -251,7 +250,7 @@
           label="Exibir projeto?"
           label-for="isVisible"
         >
-          <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" v-model="project.isVisible">Tornar este projeto visível</b-form-checkbox>
+          <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0" :readonly="$store.state.auth.role == 1" v-model="project.isVisible">Tornar este projeto visível</b-form-checkbox>
         </b-form-group>
 
 
