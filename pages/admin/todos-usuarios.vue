@@ -1,6 +1,9 @@
 <template>
   <div>
     <admin></admin>
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
     <b-container class="novo-usuario">
       <b-container class="projects">
         <div class="title-description">Todos usuários do sistema</div>
@@ -67,6 +70,9 @@ export default {
     }
   },
   methods: {
+    backForward(){
+      window.history.back()
+    },
     userLink(user){
       return `/editar-usuario/?id=${user._id}`
     },

@@ -6,6 +6,10 @@
     <div v-else>
       <coordenador></coordenador>
     </div>
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
+
     <b-container class="novo-usuario">
       <sidebar/>
       <b-form @submit="onSubmit">
@@ -287,6 +291,9 @@ export default {
     }
   },
   methods: {
+    backForward(){
+      window.history.back()
+    },
     async projectDelete(project){
       let token = this.$store.state.auth.access_token
       let config = {

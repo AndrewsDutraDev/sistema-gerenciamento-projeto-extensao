@@ -6,6 +6,11 @@
     <div v-else>
       <coordenador></coordenador>
     </div>
+
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
+
     <b-container class="novo-usuario">
       <sidebar/>
       <b-form @submit="onSubmit">
@@ -113,6 +118,9 @@ export default {
     }
   },
   methods: {
+    backForward(){
+      window.history.back()
+    },
     async onSubmit(event) {
       event.preventDefault()
       this.isLoading = true

@@ -1,6 +1,9 @@
 <template>
   <div>
     <admin></admin>
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
     <b-container class="novo-usuario">
 
       <b-form @submit="onSubmit">
@@ -92,6 +95,9 @@ export default {
     }
   },
   methods: {
+    backForward(){
+      window.history.back()
+    },
     async onSubmit(event) {
       event.preventDefault()
       this.isLoading = true

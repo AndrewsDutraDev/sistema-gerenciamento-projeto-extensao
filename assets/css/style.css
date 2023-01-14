@@ -54,6 +54,9 @@ body {
   background-color: #DE7910;
   color: #fff;
 }
+.btn.backForward {
+  max-width: fit-content;
+}
 .input-password {
   position: relative;
 }

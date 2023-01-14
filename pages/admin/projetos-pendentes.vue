@@ -1,6 +1,9 @@
 <template>
   <div>
     <admin></admin>
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
     <b-container class="projects">
       <div class="title-description">Todos projetos pendentes</div>
       <b-row>
@@ -64,6 +67,9 @@
       }
     },
     methods: {
+      backForward(){
+        window.history.back()
+      },
       projectLink(project){
         return `/editar-projeto?id=${project._id}`
       }
