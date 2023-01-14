@@ -45,6 +45,15 @@ body {
   color: #DE7910;
   border-color: #DE7910;
 }
+.btn.clear-filters {
+  background-color: #fff;
+  color: #DE7910;
+  border-color: #DE7910;
+}
+.btn.clear-filters:hover {
+  background-color: #DE7910;
+  color: #fff;
+}
 .input-password {
   position: relative;
 }

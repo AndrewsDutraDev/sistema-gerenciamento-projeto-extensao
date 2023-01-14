@@ -75,9 +75,12 @@
               </b-form-group>
             </b-col>
             <b-col sm="12">
-              <b-button @click="searchResults()" class="btn">Consultar
-                <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
-              </b-button>
+              <b-row class="justify-content-end mr-1">
+                <b-button @click="clearFilters()" class="btn ml-0 clear-filters">Limpar filtros</b-button>
+                <b-button @click="searchResults()" class="btn ml-3">Consultar
+                  <b-spinner variant="light" small class="ml-2" v-if="isLoading"></b-spinner>
+                </b-button>
+              </b-row>
             </b-col>
           </b-row>
         </b-form>
@@ -162,6 +165,17 @@ export default {
   methods:{
     projectLink(project){
       return `/projeto/${project._id}`
+    },
+    clearFilters(){
+      this.form = {
+        title: '',
+        center: '',
+        main_area: '',
+        second_area: '',
+        modality: '',
+        unity: '',
+        coordenator: ''
+      }
     },
     async searchResults(){
       event.preventDefault()
