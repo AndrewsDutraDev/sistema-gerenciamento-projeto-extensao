@@ -6,6 +6,9 @@
     <div v-else>
       <coordenador></coordenador>
     </div>
+    <b-container>
+      <button @click="backForward()" class="btn backForward mt-4"> < Voltar </button>
+    </b-container>
     <b-container class="novo-usuario">
       <b-form @submit="onSubmit">
         <div class="title-description">Criar novo projeto</div>
@@ -301,6 +304,9 @@ export default {
     }
   },
   methods: {
+    backForward(){
+      window.history.back()
+    },
     async onSubmit(event) {
       event.preventDefault()
       let token = this.$store.state.auth.access_token
